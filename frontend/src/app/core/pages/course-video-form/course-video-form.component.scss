@@ -1,0 +1,100 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container form {
+    margin: auto auto;
+    width: 90vw;
+    margin: 20px;
+}
+.formInputFeild {
+    width: 50%;
+}
+
+mat-form-feild {
+    margin-top: 15px;
+}
+
+.formContainer {
+    margin: 20px;
+}
+
+.formSubContainer {
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px ;
+    margin-right: 20px;
+}
+
+.flexContainer {
+    display: flex;
+    align-items: flex-start;
+}
+
+
+
+.thumbnail-container {
+    width: 200px;
+}
+
+.thumbnail-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto 15px;
+}
+
+.thumbnail-buttons button {
+    margin: 10px;
+    width: 134px;
+
+}
+
+.description-container {
+    width: 70%;
+}
+
+
+
+.thumbnail-container img {
+    object-fit: fill;
+    margin-bottom: 10px;
+}
+
+
+
+@media screen and (max-width: 800px) {
+    .formSubContainer {
+        width: 100%;
+        display: block;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .flexContainer {
+        display: block;
+    }
+
+    .thumbnail-container {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .description-container {
+        width: 100%;
+    }
+}
