@@ -3,7 +3,7 @@ import ytdl, { videoInfo, Filter, chooseFormat } from "ytdl-core";
 import checkauth from "../../middleware/checkauth";
 import { Course } from "../../DB/Models/courseModel";
 import { imageUrlToBase64 } from "../auth/user/refechvideo";
-const HttpsProxyAgent = require('https-proxy-agent');
+// const HttpsProxyAgent = require('https-proxy-agent');
 const route = Router();
 
 // Function to handle the route logic
@@ -11,7 +11,7 @@ const handleVideoRequest = async (req: Request, res: Response) => {
     
     try {
         const videoURL = req.params.videoID;
-        const info: videoInfo = await ytdl.getInfo(videoURL,{requestOptions: { agent }});
+        const info: videoInfo = await ytdl.getInfo(videoURL);
         
         const { video, audio } = req.query;
         
