@@ -3,10 +3,31 @@ import ytdl, { videoInfo, Filter, chooseFormat } from "ytdl-core";
 import checkauth from "../../middleware/checkauth";
 import { Course } from "../../DB/Models/courseModel";
 import { imageUrlToBase64 } from "../auth/user/refechvideo";
-// const HttpsProxyAgent = require('https-proxy-agent');
+import UserModel from "../../DB/Models/userModel";
+
 const route = Router();
 
-// Function to handle the route logic
+
+async function isEnrolledCourse(userName: string, courseId: string): Promise<boolean> {
+    try {
+        const user = await UserModel.findOne({ userName });
+        if (!user) {
+            throw new Error('User not found');
+        }
+        console.log({courseId});
+        
+        const enrolledCourses : any= user?.enrolled?.map((course:any) =>{
+            console.log(course);
+            
+            return course?.courseId?.toString()});
+        console.log(user,enrolledCourses);
+        
+        return enrolledCourses.includes(courseId);
+    } catch (error) {
+        console.error('Error checking enrollment:', error);
+        return false;
+    }
+}
 const handleVideoRequest = async (req: Request, res: Response) => {
     
     try {
@@ -80,21 +101,23 @@ const handleError = (res: Response, errorMessage: string) => {
 };
  
 // video details fetching 
-async function fetchOnlyVideoDetails(req:Request,res:Response){
-    try{
-        const course = await Course.findById(req.params.videoID)
-        // const info: videoInfo = await ytdl.getInfo(req.params.videoID);
+async function fetchOnlyVideoDetails(req: any, res: Response) {
+    try {
+        const course = await Course.findById(req.params.videoID);
+        const isEnrolled = await isEnrolledCourse(req.userName, req.params.videoID); // await the result
         res.json({
-            ok:true,
-            info:course
+            ok: true,
+            isEnrolled: isEnrolled, // sending isEnrolled result
+            info: course
         });
-    }catch(err: any ){
+    } catch (err: any) {
         res.json({
-            ok : false,
-            message:err.message
+            ok: false,
+            message: err.message
         })
     }
 }
+
 async function ytfetchOnlyVideoDetails(req:Request,res:Response){
     try{
         const info: videoInfo = await ytdl.getInfo(req.params.videoID);
