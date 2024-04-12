@@ -9,8 +9,10 @@ import { CourseVisitComponent } from './core/pages/course-visit/course-visit.com
 import { UploadVideoComponent } from './core/components/upload-video/upload-video.component';
 import { CoursePlayerComponent } from './core/pages/course-player/course-player.component';
 import { CourseVideoFormComponent } from './core/pages/course-video-form/course-video-form.component';
+import { BigCourseEditorComponent } from './core/pages/big-course-editor/big-course-editor.component';
 import { ProgressComponent } from './core/pages/progress/progress.component';
 import { AboutComponent } from './core/pages/about/about.component';
+import { BigCourseEditorPanelComponent } from './core/pages/big-course-editor-panel/big-course-editor-panel.component';
 export const routes: Routes = [
     {path:'' , component:HomeComponent},
     {path:'upload' , component:UploadVideoComponent},
@@ -22,6 +24,8 @@ export const routes: Routes = [
     {path:'user/:userName' , component:UserProfileComponent},
     {path:'explore' , component:ExploreComponent},
     {path:'videoForm' , component:CourseVideoFormComponent},
+    {path:'bigCourseEditor' , component:BigCourseEditorComponent},
+    {path:'editorPanel' , component:BigCourseEditorPanelComponent},
     {path:'course/:id' , component:CourseVisitComponent},
     {path:'**', pathMatch:'full' , component:ErrorPageComponent},
 ];
