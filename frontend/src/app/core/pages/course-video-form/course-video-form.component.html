@@ -110,6 +110,12 @@
         </div>
 
         }
+
+        @else if (isLoading) {
+            <div class="loader">
+                <mat-spinner></mat-spinner>
+            </div>
+        }
         <div>
             <button style="width: 134px; height: 44px; font-size: medium;" mat-raised-button color="primary"
                 type="submit" (click)="submit()">Submit</button>

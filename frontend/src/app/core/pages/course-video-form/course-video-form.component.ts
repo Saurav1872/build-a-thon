@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormsModule, ReactiveFormsModule, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Validators, FormsModule, ReactiveFormsModule, FormBuilder, FormControl, FormGroup, ValidatorFn, AbstractControl } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 interface Video {
   link: string,
@@ -29,13 +30,16 @@ interface Video {
     MatCardModule,
     CommonModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule
   ],
   templateUrl: './course-video-form.component.html',
   styleUrl: './course-video-form.component.scss'
 })
 export class CourseVideoFormComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder, private http: HttpClient) { }
+
+  isLoading:boolean = false;
 
   video: Video = {
     link: '',
@@ -73,7 +77,7 @@ export class CourseVideoFormComponent implements OnInit {
   }
 
 
-  setValue(res:any):void {
+  setValue(res: any): void {
     this.videoFormGroup.get('courseTitleCtrl')?.setValue(res.title);
     this.videoFormGroup.get('courseDescriptionCtrl')?.setValue(res.description);
     // this.videoFormGroup.get('courseThumbnailCtrl')?.setValue(res.thumbnail);
@@ -102,14 +106,15 @@ export class CourseVideoFormComponent implements OnInit {
   }
 
   fetchedSuccess: boolean = false;
-
   fetchVideo() {
     const videoID = this.extractVideoId(this.videoFormGroup.get('courseVideoLinkCtrl')?.value);
 
     try {
+      this.isLoading = true;
       this.http.get(`http://localhost:5000/api/v1/yt-video-url/${videoID}/video-details`, { withCredentials: true }).subscribe((res: any) => {
         console.log(res);
         if (!res.ok) {
+          this.isLoading = false;
           return;
         }
         // this.videoFormGroup.controls.courseTitleCtrl = res.title;
@@ -120,15 +125,13 @@ export class CourseVideoFormComponent implements OnInit {
         // this.video.description = res.description;
 
         this.setValue(res);
-
         this.fetchedSuccess = true;
-
-
+        this.isLoading = false;
       })
     } catch (err) {
-
-
+      this.isLoading = false;
     }
+
   }
 
   extractVideoId(url: any) {
@@ -155,6 +158,6 @@ export class CourseVideoFormComponent implements OnInit {
 
   submit() {
     console.log(JSON.stringify(this.video), null, 4);
-    
+
   }
 }
