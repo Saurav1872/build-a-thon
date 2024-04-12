@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component} from '@angular/core';
+import { Component, ViewChild} from '@angular/core';
 import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
 import { VgControlsModule } from '@videogular/ngx-videogular/controls';
 import { VgCoreModule } from '@videogular/ngx-videogular/core';
@@ -11,7 +11,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
+import { CdkAccordionModule } from '@angular/cdk/accordion';
 interface Video {
   name: string,
   url: string
@@ -22,6 +22,31 @@ interface CourseModule {
   videos: Video[],
   expanded: boolean
 }
+
+interface Lecture {
+  _id: Object,
+  title: string,
+  description: string,
+  url: string,
+}
+
+interface Module {
+  _id: Object,
+  name: string,
+  description: string,
+  lectures: Lecture[]
+}
+
+interface Course {
+  _id: Object,
+  name: string,
+  description: string,
+  public: boolean,
+  thumbnail: string,
+  price: number,
+  modules: Module[]
+}
+
 @Component({
   selector: 'app-course-player',
   standalone: true,
@@ -31,7 +56,9 @@ interface CourseModule {
     VgCoreModule,
     VgOverlayPlayModule,
     NgFor,
-    MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule
+    MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule,
+    CdkAccordionModule,
+    MatIconModule
   ],
   templateUrl: './course-player.component.html',
   styleUrl: './course-player.component.scss'
@@ -55,6 +82,246 @@ export class CoursePlayerComponent {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
+
+  playVideo(link: string) {
+    // Implement your logic to play the video using the link
+    // This could involve opening the link in a new tab or using a video player library
+    console.log('Playing video:', link);
+  }
+
+
+  course: Course = {
+    _id: {},
+    name: 'Java Programming',
+    description: 'This is just beginning',
+    public: true,
+    thumbnail: '',
+    price: 1000,
+    modules: [
+      {
+        _id: "1",
+        name: "Module 1",
+        description: "Desc",
+        lectures: [
+          {
+            _id: "1",
+            title: "Lecture 1",
+            description: "lecture 1",
+            url: "youtube 1"
+          },
+          {
+            _id: "2",
+            title: "Lecture 2",
+            description: "lecture 2",
+            url: "youtube 2"
+          },
+          {
+            _id: "3",
+            title: "Lecture 3",
+            description: "lecture 3",
+            url: "youtube 3"
+          },
+          {
+            _id: "4",
+            title: "Lecture 4",
+            description: "lecture 4",
+            url: "youtube 4"
+          },
+          {
+            _id: "5",
+            title: "Lecture 5",
+            description: "lecture 5",
+            url: "youtube 5"
+          },
+        ]
+      },
+      {
+        _id: "2",
+        name: "Module 2",
+        description: "Desc",
+        lectures: [
+          {
+            _id: "1",
+            title: "Lecture 1",
+            description: "lecture 1",
+            url: "youtube 1"
+          },
+          {
+            _id: "2",
+            title: "Lecture 2",
+            description: "lecture 2",
+            url: "youtube 2"
+          },
+          {
+            _id: "3",
+            title: "Lecture 3",
+            description: "lecture 3",
+            url: "youtube 3"
+          },
+          {
+            _id: "4",
+            title: "Lecture 4",
+            description: "lecture 4",
+            url: "youtube 4"
+          },
+          {
+            _id: "5",
+            title: "Lecture 5",
+            description: "lecture 5",
+            url: "youtube 5"
+          },
+        ]
+      },
+      {
+        _id: "3",
+        name: "Module 3",
+        description: "Desc",
+        lectures: [
+          {
+            _id: "1",
+            title: "Lecture 1",
+            description: "lecture 1",
+            url: "youtube 1"
+          },
+          {
+            _id: "2",
+            title: "Lecture 2",
+            description: "lecture 2",
+            url: "youtube 2"
+          },
+          {
+            _id: "3",
+            title: "Lecture 3",
+            description: "lecture 3",
+            url: "youtube 3"
+          },
+          {
+            _id: "4",
+            title: "Lecture 4",
+            description: "lecture 4",
+            url: "youtube 4"
+          },
+          {
+            _id: "5",
+            title: "Lecture 5",
+            description: "lecture 5",
+            url: "youtube 5"
+          },
+        ]
+      },
+      {
+        _id: "4",
+        name: "Module 4",
+        description: "Desc",
+        lectures: [
+          {
+            _id: "1",
+            title: "Lecture 1",
+            description: "lecture 1",
+            url: "youtube 1"
+          },
+          {
+            _id: "2",
+            title: "Lecture 2",
+            description: "lecture 2",
+            url: "youtube 2"
+          },
+          {
+            _id: "3",
+            title: "Lecture 3",
+            description: "lecture 3",
+            url: "youtube 3"
+          },
+          {
+            _id: "4",
+            title: "Lecture 4",
+            description: "lecture 4",
+            url: "youtube 4"
+          },
+          {
+            _id: "5",
+            title: "Lecture 5",
+            description: "lecture 5",
+            url: "youtube 5"
+          },
+        ]
+      },
+      {
+        _id: "5",
+        name: "Module 5",
+        description: "Desc",
+        lectures: [
+          {
+            _id: "1",
+            title: "Lecture 1",
+            description: "lecture 1",
+            url: "youtube 1"
+          },
+          {
+            _id: "2",
+            title: "Lecture 2",
+            description: "lecture 2",
+            url: "youtube 2"
+          },
+          {
+            _id: "3",
+            title: "Lecture 3",
+            description: "lecture 3",
+            url: "youtube 3"
+          },
+          {
+            _id: "4",
+            title: "Lecture 4",
+            description: "lecture 4",
+            url: "youtube 4"
+          },
+          {
+            _id: "5",
+            title: "Lecture 5",
+            description: "lecture 5",
+            url: "youtube 5"
+          },
+        ]
+      },
+      {
+        _id: "6",
+        name: "Module 6",
+        description: "Desc",
+        lectures: [
+          {
+            _id: "1",
+            title: "Lecture 1",
+            description: "lecture 1",
+            url: "youtube 1"
+          },
+          {
+            _id: "2",
+            title: "Lecture 2",
+            description: "lecture 2",
+            url: "youtube 2"
+          },
+          {
+            _id: "3",
+            title: "Lecture 3",
+            description: "lecture 3",
+            url: "youtube 3"
+          },
+          {
+            _id: "4",
+            title: "Lecture 4",
+            description: "lecture 4",
+            url: "youtube 4"
+          },
+          {
+            _id: "5",
+            title: "Lecture 5",
+            description: "lecture 5",
+            url: "youtube 5"
+          },
+        ]
+      },
+    ]
+  };
 
   courses :CourseModule[] = [
     {
