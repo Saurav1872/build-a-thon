@@ -1,38 +1,9 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-    <!-- <mat-toolbar color="primary" class="example-toolbar">
-        <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-        <h1 class="example-app-name">Responsive App</h1>
-    </mat-toolbar> -->
-    <!-- <div color="primary" class="toggle-btn-container">
-        <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-    </div> -->
     <button class="toggleBtn" mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
 
     <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-        <!-- <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button> -->
         <mat-sidenav class="sidenav" #snav [opened]="true" [mode]="mobileQuery.matches ? 'over' : 'side'"
             [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-            <!-- <mat-nav-list>
-                <div *ngFor="let course of courses">
-                    <button (click)="course.expanded = !course.expanded" class="moduleBtn">
-                        {{course.name}}
-                    </button>
-                    @if(course.expanded) {
-
-                        <ul class="videoList" style="margin-left:0;">
-                            <div *ngFor="let video of course.videos">
-                                <li>
-                                    <button class="videoBtn" style="width: 100%;">
-                                        {{video.name}}
-                                    </button>
-                                </li>
-                            </div>
-                        </ul>
-                    }
-                </div>
-            </mat-nav-list> -->
-
-
             <cdk-accordion class="accordion">
 
                 @for (modules of this.course.modules; track modules; let index = $index) {
@@ -100,11 +71,8 @@
                     <vg-fullscreen></vg-fullscreen>
                 </vg-controls>
 
-                <!-- <video #media [vgMedia]="$any(media)" id="singleVideo" preload="auto" crossorigin
-                    src="{{tempUrl}}">
-                </video> -->
-                <video #media [vgMedia]="$any(media)" id="singleVideo" preload="auto" crossorigin
-                    src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">
+                <video #media [vgMedia]="$any(media)" id="singleVideo" preload="auto"
+                    src="{{videoUrl}}">
                 </video>
             </vg-player>
         </mat-sidenav-content>
