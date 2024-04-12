@@ -7,9 +7,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
     min-height: 20vh;
     margin: 0;
+    width: 90%;
+    flex-wrap: wrap;
 }
 
 .course {
@@ -17,10 +18,10 @@
     border-radius: 10px;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
     display: flex;
-    max-width: 100%;
+    max-width: 90%;
     margin: 20px;
     overflow: hidden;
-    width: 700px;
+    width: 600px;
 }
 
 .course h6 {

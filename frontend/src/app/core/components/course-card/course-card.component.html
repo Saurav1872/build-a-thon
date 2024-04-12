@@ -1,46 +1,38 @@
-<div class="relative flex w-full max-w-[26rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
-    <div
-      class="relative mx-4 mt-4 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
-      <img
-        [src]="course?.thumbnail?.base64"
-        alt="ui/ux review check" />
-      <div
-        class="absolute inset-0 w-full h-full to-bg-black-10 bg-gradient-to-tr from-transparent via-transparent to-black/60">
-      </div>
-      <button
-        class="!absolute  top-4 right-4 h-8 max-h-[32px] w-8 max-w-[32px] select-none rounded-full text-center align-middle font-sans text-xs font-medium uppercase text-red-500 transition-all hover:bg-red-500/10 active:bg-red-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-        type="button">
-      </button>
+<div class="flex flex-col max-w-[26rem] rounded-xl bg-white shadow-lg overflow-hidden">
+    <div class="relative h-40">
+        <img class="w-full h-full object-cover" [src]="course?.thumbnail?.base64" alt="Course Thumbnail">
+        <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-black/60"></div>
+        <button
+            class="absolute top-4 right-4 h-8 w-8 flex items-center 
+            justify-center rounded-full text-white bg-red-500 hover:bg-red-600 focus:outline-none"
+            type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M9.293 4.293a1 1 0 011.414 0L14 8.586l1.293-1.293a1 1 0 111.414 1.414L15.414 
+                    10l1.293 1.293a1 1 0 01-1.414 1.414L14 11.414l-1.293 1.293a1 1 0 01-1.414-1.414L12.586 
+                    10l-1.293-1.293a1 1 0 010-1.414zM10 18a8 8 0 100-16 8 8 0 000 16z"
+                    clip-rule="evenodd" />
+            </svg>
+        </button>
     </div>
     <div class="p-6">
-      <div class="flex items-center justify-between mb-3">
-
-        <h5 class="block font-sans text-xl antialiased font-medium leading-snug tracking-normal text-blue-gray-900">
-         {{course.title}}
-        </h5>
-       
-        <p
-          class="flex items-center gap-1.5 font-sans text-base font-normal leading-relaxed text-blue-gray-900 antialiased">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-            class="-mt-0.5 h-5 w-5 text-yellow-700">
-            <path fill-rule="evenodd"
-              d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-              clip-rule="evenodd"></path>
-          </svg>
-          5.0
-        </p>
-      </div>
-      <p class="block font-sans  text-base antialiased font-light leading-relaxed text-gray-700 h-24 overflow-hidden">
-         
-          {{course?.description}}
-      </p>
-      
+        <h5 class="font-bold text-xl text-gray-900 mb-2 h-[60px] overflow-hidden">{{ course.title }}</h5>
+        <div class="flex items-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                class="w-5 h-5 text-yellow-500 mr-1">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16z" clip-rule="evenodd" />
+                <path fill-rule="evenodd"
+                    d="M10 1a1 1 0 011 1v6h6a1 1 0 110 2h-6v6a1 1 0 11-2 0v-6H4a1 1 0 110-2h6V2a1 1 0 011-1z"
+                    clip-rule="evenodd" />
+            </svg>
+            <span class="text-gray-900 text-lg font-medium">5.0</span>
+        </div>
+        <p class="text-gray-700 text-base h-24 overflow-hidden">{{ course.description }}</p>
     </div>
     <div class="p-6 pt-3">
-      <a
-        class="block w-full select-none rounded-lg bg-gray-900 py-3.5 px-7 text-center align-middle font-sans text-sm font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-        type="button"  [routerLink]="'/course/'+course?._id">
-        Browse
-    </a>
+        <a href="/course/{{ course._id }}"
+            class="block w-full py-3.5 px-7 bg-gray-900 text-white rounded-lg 
+            text-center font-semibold uppercase shadow-md hover:shadow-lg focus:outline-none 
+            focus:ring-2 focus:ring-gray-900 focus:ring-opacity-50 transition-all">Browse</a>
     </div>
-  </div> 
+</div>

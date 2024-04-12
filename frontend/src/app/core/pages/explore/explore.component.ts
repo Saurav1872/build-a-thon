@@ -17,9 +17,8 @@ export class ExploreComponent implements OnInit {
    ngOnInit(): void {
     this.http.get('http://localhost:5000/api/v1/videos/trending',{withCredentials:true}).subscribe((res:any)=>{
       if(res.ok){
-        console.log('courses sent to client');
-        
         this.listOfCourses = res.topCourses;
+        console.log(this.listOfCourses)
       }
     })
     
