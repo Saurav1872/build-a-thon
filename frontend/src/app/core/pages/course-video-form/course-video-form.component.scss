@@ -4,22 +4,34 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
+h2 {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
 /* Firefox */
 input[type=number] {
     -moz-appearance: textfield;
 }
 
 .container {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    form {
+        margin: auto auto;
+        width: 90vw;
+        margin: 20px;
+    }
 }
 
-.container form {
-    margin: auto auto;
-    width: 90vw;
-    margin: 20px;
-}
 .formInputFeild {
     width: 50%;
 }
@@ -77,7 +89,7 @@ mat-form-feild {
 
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
     .formSubContainer {
         width: 100%;
         display: block;
