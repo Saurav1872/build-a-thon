@@ -2,18 +2,6 @@
     <div class="relative h-40">
         <img class="w-full h-full object-cover" [src]="course?.thumbnail?.base64" alt="Course Thumbnail">
         <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-black/60"></div>
-        <button
-            class="absolute top-4 right-4 h-8 w-8 flex items-center 
-            justify-center rounded-full text-white bg-red-500 hover:bg-red-600 focus:outline-none"
-            type="button">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd"
-                    d="M9.293 4.293a1 1 0 011.414 0L14 8.586l1.293-1.293a1 1 0 111.414 1.414L15.414 
-                    10l1.293 1.293a1 1 0 01-1.414 1.414L14 11.414l-1.293 1.293a1 1 0 01-1.414-1.414L12.586 
-                    10l-1.293-1.293a1 1 0 010-1.414zM10 18a8 8 0 100-16 8 8 0 000 16z"
-                    clip-rule="evenodd" />
-            </svg>
-        </button>
     </div>
     <div class="p-6">
         <h5 class="font-bold text-xl text-gray-900 mb-2 h-[60px] overflow-hidden">{{ course.title }}</h5>
