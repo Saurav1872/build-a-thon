@@ -35,6 +35,11 @@ $openlearn-frontend-theme: mat.define-light-theme((
 // that you are using.
 @include mat.all-component-themes($openlearn-frontend-theme);
 
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($openlearn-frontend-theme);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -52,3 +57,6 @@ html::-webkit-scrollbar-thumb{
 }
 // html, body { height: 100%; }
 // body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

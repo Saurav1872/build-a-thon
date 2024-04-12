@@ -10,6 +10,7 @@ import { UploadVideoComponent } from './core/components/upload-video/upload-vide
 import { CoursePlayerComponent } from './core/pages/course-player/course-player.component';
 import { CourseVideoFormComponent } from './core/pages/course-video-form/course-video-form.component';
 import { ProgressComponent } from './core/pages/progress/progress.component';
+import { AboutComponent } from './core/pages/about/about.component';
 export const routes: Routes = [
     {path:'' , component:HomeComponent},
     {path:'upload' , component:UploadVideoComponent},
@@ -17,6 +18,7 @@ export const routes: Routes = [
     {path:'signup' , component:SignupComponent},
     {path:'progress' , component:ProgressComponent},
     {path:'coursePlayer' , component:CoursePlayerComponent},
+    {path:'about' , component:AboutComponent},
     {path:'user/:userName' , component:UserProfileComponent},
     {path:'explore' , component:ExploreComponent},
     {path:'videoForm' , component:CourseVideoFormComponent},
