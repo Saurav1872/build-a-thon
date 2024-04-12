@@ -12,6 +12,7 @@ import { CourseVideoFormComponent } from './core/pages/course-video-form/course-
 import { BigCourseEditorComponent } from './core/pages/big-course-editor/big-course-editor.component';
 import { ProgressComponent } from './core/pages/progress/progress.component';
 import { AboutComponent } from './core/pages/about/about.component';
+import { BigCourseEditorPanelComponent } from './core/pages/big-course-editor-panel/big-course-editor-panel.component';
 export const routes: Routes = [
     {path:'' , component:HomeComponent},
     {path:'upload' , component:UploadVideoComponent},
@@ -24,6 +25,7 @@ export const routes: Routes = [
     {path:'explore' , component:ExploreComponent},
     {path:'videoForm' , component:CourseVideoFormComponent},
     {path:'bigCourseEditor' , component:BigCourseEditorComponent},
+    {path:'editorPanel' , component:BigCourseEditorPanelComponent},
     {path:'course/:id' , component:CourseVisitComponent},
     {path:'**', pathMatch:'full' , component:ErrorPageComponent},
 ];
