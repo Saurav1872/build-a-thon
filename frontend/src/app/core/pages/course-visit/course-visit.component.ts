@@ -23,6 +23,9 @@ export class CourseVisitComponent implements OnInit {
         
     })
   }
+  EnrollCourse(){
+    
+  }
   
 
 }
