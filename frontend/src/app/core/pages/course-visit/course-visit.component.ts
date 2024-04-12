@@ -12,16 +12,26 @@ import { ActivatedRoute } from '@angular/router';
 export class CourseVisitComponent implements OnInit {
   constructor(private http: HttpClient,private route: ActivatedRoute){}
   courseData:any = {};
-  
+  id = this.route.snapshot.params['id'];
   ngOnInit() {
-    let id = this.route.snapshot.params['id'];
-    this.http.get(`http://localhost:5000/api/v1/video-url/${id}/video-details`,{withCredentials:true}).subscribe((res:any)=>{
+   
+    this.http.get(`http://localhost:5000/api/v1/video-url/${this.id}/video-details`,{withCredentials:true}).subscribe((res:any)=>{
       if(res.ok){
 
         this.courseData=res.info;
       }
         
     })
+  }
+  EnrollCourse(){
+    this.http.put(`http:/localhost:5000/auth/enroll/${this.id}`,{},{withCredentials:true}).subscribe((res:any)=>{
+        if(!res.ok){
+          return ;
+        }
+        console.log(res);
+        
+    })
+
   }
   
 

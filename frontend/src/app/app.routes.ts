@@ -9,13 +9,20 @@ import { CourseVisitComponent } from './core/pages/course-visit/course-visit.com
 import { UploadVideoComponent } from './core/components/upload-video/upload-video.component';
 import { CoursePlayerComponent } from './core/pages/course-player/course-player.component';
 import { CourseVideoFormComponent } from './core/pages/course-video-form/course-video-form.component';
+<<<<<<< HEAD
 import { BigCourseEditorComponent } from './core/pages/big-course-editor/big-course-editor.component';
+=======
+import { ProgressComponent } from './core/pages/progress/progress.component';
+import { AboutComponent } from './core/pages/about/about.component';
+>>>>>>> 8c3ccfb6a671279cf9d4eba130adfd4a1dcbac8b
 export const routes: Routes = [
     {path:'' , component:HomeComponent},
     {path:'upload' , component:UploadVideoComponent},
     {path:'login' , component:LoginComponent},
     {path:'signup' , component:SignupComponent},
+    {path:'progress' , component:ProgressComponent},
     {path:'coursePlayer' , component:CoursePlayerComponent},
+    {path:'about' , component:AboutComponent},
     {path:'user/:userName' , component:UserProfileComponent},
     {path:'explore' , component:ExploreComponent},
     {path:'videoForm' , component:CourseVideoFormComponent},
