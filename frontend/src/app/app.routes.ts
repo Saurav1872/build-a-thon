@@ -19,7 +19,7 @@ export const routes: Routes = [
     {path:'login' , component:LoginComponent},
     {path:'signup' , component:SignupComponent},
     {path:'progress' , component:ProgressComponent},
-    {path:'coursePlayer' , component:CoursePlayerComponent},
+    {path:'coursePlayer/:courseId' , component:CoursePlayerComponent},
     {path:'about' , component:AboutComponent},
     {path:'user/:userName' , component:UserProfileComponent},
     {path:'explore' , component:ExploreComponent},

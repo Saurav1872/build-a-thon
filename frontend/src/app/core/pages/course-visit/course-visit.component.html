@@ -33,10 +33,15 @@
         <img class="object-cover object-center rounded" [width]="courseData.thumbnail?.width" [height]="courseData.thumbnail?.height" alt="hero" [src]="courseData.thumbnail?.base64"/>
       </div>
     </div>
-    <button
+    <button *ngIf="!nowEnroled"
       class="block select-none rounded-lg bg-blue-600 p-4 font-sans text-sm font-bold uppercase text-white shadow-md shadow-blue-700/10 transition-all hover:shadow-lg hover:shadow-blue-700/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
       type="button" (click)="EnrollCourse()">
       Enroll
     </button>
+    <a *ngIf="nowEnroled" [routerLink]="courseVideoLink"
+
+      class="block select-none w-32 rounded-lg bg-blue-600 p-4 font-sans text-sm font-bold uppercase text-white shadow-md shadow-blue-700/10 transition-all hover:shadow-lg hover:shadow-blue-700/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+      GoTo Course
+  </a>
   </div>
 </section>
