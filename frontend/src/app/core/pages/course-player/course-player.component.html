@@ -1,8 +1,8 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-    <button class="toggleBtn" mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <!-- <button class="toggleBtn" mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button> -->
 
     <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-        <mat-sidenav class="sidenav" #snav [opened]="true" [mode]="mobileQuery.matches ? 'over' : 'side'"
+        <!-- <mat-sidenav class="sidenav" #snav [opened]="true" [mode]="mobileQuery.matches ? 'over' : 'side'"
             [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
             <cdk-accordion class="accordion">
 
@@ -42,7 +42,7 @@
 
             </cdk-accordion>
 
-        </mat-sidenav>
+        </mat-sidenav> -->
 
         <mat-sidenav-content>
             <vg-player>
