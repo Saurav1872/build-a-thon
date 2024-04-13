@@ -24,9 +24,9 @@ export class NavbarComponent implements OnInit {
     { link: '/docs', name: 'Docs' },
   ];
   profileFloatingNavigation = [
-    { link: '/user/0', name: 'profile' },
+    { link: '/user/0', name: 'Profile' },
     { link: '/videoForm', name: 'Create' },
-    { link: '/settings', name: 'settings' },
+    { link: '/settings', name: 'Settings' },
   ]
   toggleprofile = false;
 
