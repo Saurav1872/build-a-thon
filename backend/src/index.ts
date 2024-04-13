@@ -33,6 +33,7 @@ app.use(cookieParser());
 app.use('/api/v1', Full_Video_route);
 app.use('/auth/', authRoute);
 app.use('/api/v1/videos',videosRouter);
+app.use('/api/v1/trackProgress', checkauth, trackProgress);
 
 // default route
 app.get('/', (req: Request, res: Response) => {
