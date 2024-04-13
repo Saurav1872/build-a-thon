@@ -12,7 +12,9 @@ export class ProgressCardComponent {
   @Input() course: any;
   constructor() {}
   progressPercentage: number = 0;
+  date: String = "";
   ngOnInit(): void {
     this.progressPercentage = (this.course.progress / this.course.totalDuration) * 100;
+    this.date = new Date(this.course.enrolledOn).toLocaleDateString();
   }
 }

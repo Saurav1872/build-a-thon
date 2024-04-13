@@ -15,32 +15,14 @@ export class ProgressComponent {
   constructor(private http: HttpClient) {}
   listOfCourses: any = [];
   ngOnInit(): void {
-    // this.http
-    //   .get('http://localhost:5000/api/v1/progress', { withCredentials: true })
-    //   .subscribe((res: any) => {
-    //     if (res.ok) {
-    //       console.log('courses sent to client');
+    this.http
+      .get('http://localhost:5000/api/v1/trackProgress', { withCredentials: true })
+      .subscribe((res: any) => {
+        if (res.ok) {
+          console.log(res);
 
-    //       this.listOfCourses = res.topCourses;
-    //     }
-    //   });
-    this.listOfCourses = [
-      {
-        name: 'Course 1',
-        progress: 35,
-        totalDuration: 100,
-        author: 'Author 1',
-        enrolledOn: '2021-01-01',
-        image: 'https://via.placeholder.com/150',
-      },
-      {
-        name: 'Course 2',
-        progress: 190,
-        totalDuration: 200,
-        author: 'Author 2',
-        enrolledOn: '2021-01-01',
-        image: 'https://via.placeholder.com/160',
-      },
-    ];
+          this.listOfCourses = res.courses;
+        }
+      });
   }
 }
