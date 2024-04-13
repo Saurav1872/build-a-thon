@@ -13,7 +13,6 @@ import { BigCourseEditorComponent } from './core/pages/big-course-editor/big-cou
 import { ProgressComponent } from './core/pages/progress/progress.component';
 import { AboutComponent } from './core/pages/about/about.component';
 import { BigCourseEditorPanelComponent } from './core/pages/big-course-editor-panel/big-course-editor-panel.component';
-import { ChatbotComponent } from './core/components/chatbot/chatbot.component';
 export const routes: Routes = [
     {path:'' , component:HomeComponent},
     {path:'upload' , component:UploadVideoComponent},
@@ -25,7 +24,6 @@ export const routes: Routes = [
     {path:'user/:userName' , component:UserProfileComponent},
     {path:'explore' , component:ExploreComponent},
     {path:'videoForm' , component:CourseVideoFormComponent},
-    {path:'chat' , component:ChatbotComponent},
     {path:'bigCourseEditor' , component:BigCourseEditorComponent},
     {path:'editorPanel' , component:BigCourseEditorPanelComponent},
     {path:'course/:id' , component:CourseVisitComponent},
