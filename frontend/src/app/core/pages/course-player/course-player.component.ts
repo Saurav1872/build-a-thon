@@ -69,7 +69,7 @@ interface Course {
 export class CoursePlayerComponent implements OnInit {
 
   
-  videoUrl: string = "https://rr4---sn-qxaelnes.googlevideo.com/videoplayback?expire=1713003637&ei=FQgaZrHQMqPk3LUPhMeF4Ao&ip=2409%3A40d1%3A1020%3Ad699%3A11eb%3A8deb%3Ab689%3A6a4c&id=o-AG3MoHQy-mcCl_qMShqmkTs8nFP7Frxu8ChSsq1Ok6qM&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&bui=AaUN6a1MxVoXusdLqgLiFt5cKM7YdjgCoUjXgkNueeTK4lgipWT70-a7HT1K2KSnRZ-L5TxaalsFbJwI&spc=UWF9f7mgO-RELOBv-1GMp2uPxZgiMgTQN-chNUQuVncgZwgihaPYi0MlgKDB&vprv=1&svpuc=1&mime=video%2Fmp4&ns=RbfLzZNr4fQsBs6bRN8TeCcQ&gir=yes&clen=273296565&ratebypass=yes&dur=9843.983&lmt=1703238014025309&c=WEB&sefc=1&txp=5438434&n=9z1O1nVboYwZeA&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cns%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AJfQdSswRAIgeP4Db3PPltMh60CjhxKaWSgp3KZAsmDV1RV4fjXSEB8CIGvhQQtbMQlAVdiPBHO_ROo8bV5OoH3mW6k_kimZqAPV&cm2rm=sn-gwpa-5u9e7s,sn-gwpa-qxak7r&req_id=16ecfccb05fba3ee&redirect_counter=2&cms_redirect=yes&cmsv=e&mh=Uz&mm=30&mn=sn-qxaelnes&ms=nxu&mt=1712981781&mv=m&mvi=4&pl=41&lsparams=mh,mm,mn,ms,mv,mvi,pl&lsig=ALClDIEwRgIhAND7g6PJT3dM9xBNSNLZBCfBuAdG48uEVzTL6f5wg7eBAiEA-9SygeGsfHyONcF5XA4tURWqw3TbBrD8wbBOCIdilW8%3D";
+  videoUrl: string = "";
   
   mobileQuery: MediaQueryList;
   courseId:any = this.route.snapshot.params["courseId"];

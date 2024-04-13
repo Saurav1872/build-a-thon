@@ -71,9 +71,10 @@
                     <vg-fullscreen></vg-fullscreen>
                 </vg-controls>
                     
-                        <video #media [vgMedia]="$any(media)" id="singleVideo" preload="metadata"
+                        <video  #media [vgMedia]="$any(media)" id="singleVideo" preload="none"
                         [src]="videoUrl">
                     </video>
+                   
             </vg-player>
         </mat-sidenav-content>
     </mat-sidenav-container>
