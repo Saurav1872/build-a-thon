@@ -14,8 +14,6 @@ async function isEnrolledCourse(userName: string, courseId: string): Promise<boo
         if (!user) {
             throw new Error('User not found');
         }
-        // console.log({courseId});
-        console.log("----user"+user.enrolled);
         
         
         const enrolledCourse : any= user.enrolled?.some((course:any) =>{
@@ -33,7 +31,16 @@ async function isEnrolledCourse(userName: string, courseId: string): Promise<boo
 const handleVideoRequest = async (req: Request, res: Response) => {
     
     try {
-        const videoURL = req.params.videoID;
+        const id = req.params.videoID;
+        const course:any = await Course.findById(id);
+        if(!course){
+            return res.send({
+                ok:false,
+                message:'no course found! '
+            })
+        }
+        const videoURL :string= course?.videoId;
+
         const info: videoInfo = await ytdl.getInfo(videoURL);
         
         const { video, audio } = req.query;
@@ -88,18 +95,18 @@ const handleFilterRequest = (req: Request, info: videoInfo, res: Response) => {
 
 // Function to send a JSON response
 const sendResponse = (res: Response, data: any) => {
-    res.json(data);
+    res.json({ok:true,data});
 };
 
 // Function to send an error response
 const sendErrorResponse = (res: Response, errorMessage: string) => {
-    res.status(500).json({ error: errorMessage });
+    res.status(500).json({ok:false, error: errorMessage });
 };
 
 // Error handler function
 const handleError = (res: Response, errorMessage: string) => {
     console.error('Error:', errorMessage);
-    res.status(500).json({ error: errorMessage });
+    res.status(500).json({ok:false, error: errorMessage });
 };
  
 // video details fetching 
