@@ -43,8 +43,8 @@ export class CourseVideoFormComponent implements OnInit {
 
   video: Video = {
     link: '',
-    title: 'ajfka',
-    description: 'ajsfka',
+    title: '',
+    description: '',
     thumbnail: '',
     price: 0
   };
@@ -157,7 +157,13 @@ export class CourseVideoFormComponent implements OnInit {
   }
 
   submit() {
-    console.log(JSON.stringify(this.video), null, 4);
+    const id:string = this.extractVideoId(this.video.link);
+    this.http.put('http://localhost:5000/auth/addvideo',{youtubeVideoId:id},{withCredentials:true}).subscribe((res:any)=>{
+
+      console.log(res);
+      
+    })
+   
 
   }
 }

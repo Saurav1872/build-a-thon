@@ -19,7 +19,7 @@ router.post('/login',loginHandler);
 router.post('/logout',logoutHandler);
 router.put('/addvideo',checkauth,addNewVideo);
 router.put('/refetch',checkauth,refetchVideo);
-router.put('/enroll/:courseId',checkauth,EnrollInVideo)
+router.put('/enroll/:videoId',checkauth,EnrollInVideo)
 router.delete('/deleteVideo',checkauth,DeleteVideo);
 router.get('/is-valid-Cookie',isValidCookie);
 router.get('/get-user-details/:userName',checkauth,getUserDetails);

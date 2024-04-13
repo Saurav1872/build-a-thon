@@ -14,15 +14,17 @@ async function isEnrolledCourse(userName: string, courseId: string): Promise<boo
         if (!user) {
             throw new Error('User not found');
         }
-        console.log({courseId});
+        // console.log({courseId});
+        console.log("----user"+user.enrolled);
         
-        const enrolledCourses : any= user?.enrolled?.map((course:any) =>{
+        
+        const enrolledCourse : any= user.enrolled?.some((course:any) =>{
             console.log(course);
             
-            return course?.courseId?.toString()});
-        console.log(user,enrolledCourses);
+            return course?.courseId?.toString()===courseId});
+            // console.log(user,enrolledCourses);
         
-        return enrolledCourses.includes(courseId);
+        return enrolledCourse||false;
     } catch (error) {
         console.error('Error checking enrollment:', error);
         return false;
